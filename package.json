@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/MauriceButler/divergence/issues"
   },
-  "homepage": "https://github.com/MauriceButler/divergence"
+  "homepage": "https://github.com/MauriceButler/divergence",
+  "dependencies": {
+    "deep-equal": "^0.2.1",
+    "grape": "^0.1.10"
+  }
 }
