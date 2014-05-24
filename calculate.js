@@ -54,6 +54,4 @@ function scanForChanges(old, current, processedKey){
 
 
 
-module.exports = function calculate(originalObject, newObject){
-    return scanForChanges(originalObject, newObject);
-};
+module.exports = scanForChanges;
