@@ -1,4 +1,4 @@
-var constants = require('./constants'),
+var actions = require('./actions'),
     deepEqual = require('deep-equal');
 
 function scanForChanges(old, current, processedKey){
@@ -25,12 +25,12 @@ function scanForChanges(old, current, processedKey){
         visited[keyBeingProcessed] = null;
 
         if(!(keyBeingProcessed in current)){
-            result[processedKey + keyBeingProcessed] = [constants.actions.deleted];
+            result[processedKey + keyBeingProcessed] = [actions.deleted];
             continue;
         }
 
         if(!(keyBeingProcessed in old)){
-            result[processedKey + keyBeingProcessed] = [constants.actions.added, current[keyBeingProcessed]];
+            result[processedKey + keyBeingProcessed] = [actions.added, current[keyBeingProcessed]];
             continue;
         }
 
@@ -42,7 +42,7 @@ function scanForChanges(old, current, processedKey){
                     result[processedKey + deepKey] = deepChanges[deepKey];
                 }
             } else {
-                result[processedKey + keyBeingProcessed] = [constants.actions.modified, current[keyBeingProcessed]];
+                result[processedKey + keyBeingProcessed] = [actions.modified, current[keyBeingProcessed]];
             }
             continue;
         }
@@ -50,8 +50,5 @@ function scanForChanges(old, current, processedKey){
 
     return result;
 }
-
-
-
 
 module.exports = scanForChanges;
