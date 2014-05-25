@@ -58,6 +58,25 @@ test('deep diff', function (t) {
     t.deepEqual(oldObject, currentObject, 'works also');
 });
 
+test('baren base', function (t) {
+    t.plan(1);
+    var oldObject = {
+        },
+        expectedObject = {
+            b: {
+                meh: 'moar stuff'
+            },
+            d: {
+                beep: 'boop'
+            }
+        },
+        diff = {"a":[0],"b.meh":[1,"moar stuff"],"d":[2,{"beep":"boop"}]};
+
+    apply(oldObject, diff);
+
+    t.deepEqual(oldObject, expectedObject, 'baren base works also');
+});
+
 test('all the things', function (t) {
     t.plan(1);
     var oldObject = {
