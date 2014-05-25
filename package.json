@@ -1,6 +1,6 @@
 {
   "name": "divergence",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Calculates and applies the divergence between 2 objects",
   "main": "index.js",
   "scripts": {
